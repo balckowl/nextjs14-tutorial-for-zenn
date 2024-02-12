@@ -9,7 +9,7 @@ interface TBlog {
 const BlogPage = async () => {
 
     const getBlogData = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`,{ cache: 'force-cache' })
     
         const data = await res.json()
     
