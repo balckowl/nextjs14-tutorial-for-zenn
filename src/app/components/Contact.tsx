@@ -17,7 +17,7 @@ const Contact = () => {
 
         setIsLoading(true)
 
-        await fetch(`${process.env.NEXT_PUBLIC_URL}/api/contact`, {
+        await fetch(`/api/contact`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
