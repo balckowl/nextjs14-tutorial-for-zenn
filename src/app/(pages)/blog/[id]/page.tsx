@@ -13,9 +13,13 @@ export async function generateStaticParams() {
 
   console.log(data)
 
-  return data.map((blog: TBlog) => ({
+  const blogDataId = data.map((blog: TBlog) => ({
     id: blog.id,
   }))
+
+  console.log(blogDataId)
+
+  return blogDataId
 }
 
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {

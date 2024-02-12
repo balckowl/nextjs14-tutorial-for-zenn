@@ -15,7 +15,7 @@ const BlogPage = async () => {
 
         console.log(data)
     
-        return data.blogData
+        return data
     }
 
     const blogDataList = await getBlogData()
