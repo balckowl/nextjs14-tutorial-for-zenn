@@ -11,11 +11,9 @@ export async function generateStaticParams() {
 
   const data = await res.json()
 
-  const { blogData } = data
+  console.log(data)
 
-  console.log(blogData)
-
-  return blogData.map((blog: TBlog) => ({
+  return data.map((blog: TBlog) => ({
     id: blog.id,
   }))
 }
