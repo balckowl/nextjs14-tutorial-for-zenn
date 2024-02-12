@@ -18,7 +18,7 @@ export async function generateStaticParams(){
   }))
 }
 
-const BlogArticlePage = async ({ params }: { params: { id: number | string } }) => {
+const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
 
   const getBlogArticle = async() => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`)
