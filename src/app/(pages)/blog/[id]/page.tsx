@@ -18,21 +18,21 @@ export async function generateStaticParams() {
   }))
 }
 
+const getBlogArticle = async (id: string) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${id}`)
+
+  const blogArticle = await res.json()
+
+  return blogArticle
+}
+
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
 
-  const getBlogArticle = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`)
+  const blogArtcile = await getBlogArticle(params.id)
 
-    const blogArticle = await res.json()
-
-    return blogArticle
-  }
-
-  const blogArtcile = await getBlogArticle()
-
-  if (!blogArtcile) {
-    return <NotFound />
-  }
+  // if (!blogArtcile) {
+  //   return <NotFound />
+  // }
 
   return (
     <div className="container mx-auto py-5">
