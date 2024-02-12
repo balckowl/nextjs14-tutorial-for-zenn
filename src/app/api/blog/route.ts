@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server"
-import blogData from "../../blog-data.json"
+import blogData from "../../../../blog-data.json"
 
 const GET = () => {
 
