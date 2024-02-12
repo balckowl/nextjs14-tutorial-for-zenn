@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server"
-import blogData from "../../../../../blog-data.json"
+import { blogData } from "../../../../../blog-data.json"
 
 const GET = (req: NextRequest) => {
     const id = req.nextUrl.pathname.split('/').pop()
 
     const blogArticle = blogData.find(blog => blog.id === Number(id))
 
-    return NextResponse.json({ blogArticle })
+    return NextResponse.json(blogArticle)
 }
 
 export { GET }
