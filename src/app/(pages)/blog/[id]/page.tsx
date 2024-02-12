@@ -6,28 +6,28 @@ interface TBlog {
   content: string;
 }
 
-export async function generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`, { cache: 'force-cache' })
+// export async function generateStaticParams() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`, { cache: 'force-cache' })
 
-  const data = await res.json()
+//   const data = await res.json()
 
-  const { blogData } = data
+//   const { blogData } = data
 
-  console.log(blogData)
+//   console.log(blogData)
 
-  const blogParams = blogData.map((blog: TBlog) => ({
-    id: blog.id,
-  }))
+//   const blogParams = blogData.map((blog: TBlog) => ({
+//     id: blog.id,
+//   }))
 
-  console.log(blogParams)
+//   console.log(blogParams)
 
-  return [...blogParams]
-}
+//   return [...blogParams]
+// }
 
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
 
   const getBlogArticle = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`,{ cache: 'force-cache' })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`,{ cache: 'no-store' })
 
     const data = await res.json()
 
