@@ -21,7 +21,7 @@ export async function generateStaticParams(){
 const BlogArticlePage = async ({ params }: { params: { id: number | string } }) => {
 
   const getBlogArticle = async() => {
-    const res = await fetch(`http://localhost:3000/api/blog/${params.id}`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`)
 
     const data = await res.json()
 
