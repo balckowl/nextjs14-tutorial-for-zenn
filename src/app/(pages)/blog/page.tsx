@@ -9,7 +9,7 @@ interface TBlog {
 const BlogPage = async () => {
 
     const getBlogData = async () => {
-        const res = await fetch('http://localhost:3000/api/blog')
+        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
     
         const data = await res.json()
     

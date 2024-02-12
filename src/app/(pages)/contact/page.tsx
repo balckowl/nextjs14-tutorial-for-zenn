@@ -7,13 +7,13 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'お問い合わせ | Nextjs超初心者入門',
         description: 'お問い合わせページです。',
-        url: 'http:localhost:3000',
+        url: `${process.env.NEXT_PUBLIC_URL}`,
         siteName: 'SSGブログ',
         images: [
             {
                 width: '1200',
                 height: '675',
-                url: 'http:localhost:3000/ogp-home.png'
+                url: `${process.env.NEXT_PUBLIC_URL}/ogp-home.png`
             }
         ],
         locale: 'jp',
