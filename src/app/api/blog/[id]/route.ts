@@ -6,7 +6,7 @@ const GET = (req: NextRequest) => {
 
     const blogArticle = blogData.find(blog => blog.id === Number(id))
 
-    return NextResponse.json(blogArticle)
+    return NextResponse.json({ blogArticle })
 }
 
 export { GET }
