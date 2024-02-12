@@ -9,17 +9,13 @@ interface TBlog {
 export async function generateStaticParams() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
 
-  const data = await res.json()
+  const blogData = await res.json()
 
-  console.log(data)
+  console.log(blogData)
 
-  const blogDataId = data.map((blog: TBlog) => ({
+  return blogData.map((blog: TBlog) => ({
     id: blog.id,
   }))
-
-  console.log(blogDataId)
-
-  return blogDataId
 }
 
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
@@ -27,9 +23,9 @@ const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
   const getBlogArticle = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${params.id}`)
 
-    const data = await res.json()
+    const blogArticle = await res.json()
 
-    return data.blogArticle
+    return blogArticle
   }
 
   const blogArtcile = await getBlogArticle()
