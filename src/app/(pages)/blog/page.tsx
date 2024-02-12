@@ -6,15 +6,15 @@ interface TBlog {
     content: string;
 }
 
-const BlogPage = async () => {
+const getBlogData = async () => {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
 
-    const getBlogData = async () => {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
-    
-        const blogData = await res.json()
-    
-        return blogData
-    }
+    const blogData = await res.json()
+
+    return blogData
+}
+
+const BlogPage = async () => {
 
     const blogData = await getBlogData()
 
