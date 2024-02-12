@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { blogData } from "../../../../../blog-data.json"
+import  blogData  from "../../../blog-data.json"
 
 const GET = (req: NextRequest) => {
     const id = req.nextUrl.pathname.split('/').pop()
