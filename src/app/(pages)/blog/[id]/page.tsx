@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 
   console.log(blogParams)
 
-  return blogParams
+  return [...blogParams]
 }
 
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {
