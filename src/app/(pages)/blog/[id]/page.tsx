@@ -1,7 +1,7 @@
 import NotFound from "@/app/not-found"
 
 interface TBlog {
-  id: number;
+  id: string;
   title: string;
   content: string;
 }
@@ -12,10 +12,16 @@ export async function generateStaticParams(){
   const data = await res.json()
 
   const blogData = data.blogData
+
+  console.log(blogData[0].id)
  
-  return blogData.map((blog:TBlog) => ({
-    id: String(blog.id),
+  const blogParams = blogData.map((blog:TBlog) => ({
+    id: blog.id,
   }))
+
+  console.log(blogParams)
+
+  return blogParams
 }
 
 const BlogArticlePage = async ({ params }: { params: { id: string } }) => {

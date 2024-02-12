@@ -1,7 +1,7 @@
 import Link from "next/link"
 
 interface TBlog {
-    id: number;
+    id: string;
     title: string;
     content: string;
 }
