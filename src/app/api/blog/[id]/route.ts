@@ -8,7 +8,11 @@ const GET = (req: NextRequest, { params }: { params: { id: string } }) => {
 
     const blogArticle = blogData.find(blog => blog.id === id)
 
-    return NextResponse.json(blogArticle)
+    if (!blogArticle) {
+        return NextResponse.json({}, { status: 404 })
+    }
+
+    return NextResponse.json(blogArticle, { status: 200 })
 }
 
 export { GET }
