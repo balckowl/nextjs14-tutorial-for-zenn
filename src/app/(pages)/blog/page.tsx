@@ -7,7 +7,7 @@ interface TBlog {
 }
 
 const getBlogData = async () => {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`, { next: { revalidate: 60 } })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
 
     const blogData = await res.json()
 
