@@ -9,7 +9,7 @@ interface TBlog {
 export const dynamicParams = false
 
 export async function generateStaticParams() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`, { next: { revalidate: 60 } })
 
   const blogData = await res.json()
 
@@ -21,7 +21,7 @@ export async function generateStaticParams() {
 }
 
 const getBlogArticle = async (id: string) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${id}`)
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog/${id}`, { next: { revalidate: 60 } })
 
   const blogArticle = await res.json()
 
