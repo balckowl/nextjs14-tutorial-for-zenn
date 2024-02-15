@@ -1,6 +1,4 @@
-import Loading from "@/app/loading";
 import Link from "next/link"
-import { Suspense } from "react";
 
 interface TBlog {
     id: string;
@@ -8,25 +6,23 @@ interface TBlog {
     content: string;
 }
 
-const getBlogData = async () => {
+const getBlogData = async (waitTime: number) => {
 
-    await new Promise(resolve => setTimeout(resolve, 2000))
+    await new Promise(resolve => setTimeout(resolve, waitTime))
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`,{
-        cache: 'no-store'
-    })
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
 
     const blogData = await res.json()
 
     return blogData
 }
 
-const BlogList = async () => {
+const BlogList = async ({ waitTime }: { waitTime: number }) => {
 
-    const blogData = await getBlogData()
+    const blogData = await getBlogData(waitTime)
 
     return (
-        <>
+        <div className="grid grid-cols-12 gap-3 mb-3">
             {blogData.map((blog: TBlog) => (
                 <div className="col-span-4 border border-black rounded p-5" key={blog.id}>
                     <Link href={`/blog/${blog.id}`} className="w-full">
@@ -34,7 +30,7 @@ const BlogList = async () => {
                     </Link>
                 </div>
             ))}
-        </>
+        </div>
     )
 }
 
