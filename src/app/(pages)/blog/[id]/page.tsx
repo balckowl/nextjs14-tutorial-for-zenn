@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 
 
 interface TBlog {
@@ -25,9 +26,9 @@ const getBlogArticle = async (id: string) => {
 
   const blogArticle = await res.json()
 
-  // if (res.status === 404) {
-  //   return "NotFound"
-  // }
+  if (res.status === 404) {
+    return notFound()
+  }
 
   return blogArticle
 }
