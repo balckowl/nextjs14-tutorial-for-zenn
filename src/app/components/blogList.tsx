@@ -12,7 +12,9 @@ const getBlogData = async () => {
 
     await new Promise(resolve => setTimeout(resolve, 2000))
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`)
+    const res = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/blog`,{
+        cache: 'no-store'
+    })
 
     const blogData = await res.json()
 
