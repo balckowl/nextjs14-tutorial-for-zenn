@@ -4,7 +4,7 @@ Next.js 14のApp Routerの基礎をハンズオン形式で学べる本をZenn�
 ## 本のリンク📚
 [Next.js14初心者入門はこちら](https://zenn.dev/y_ta/books/eec3b78567aeeb)
 
-# 作品リンク🔗
+## 作品リンク🔗
 なし
 
 ## 技術スタック🚀
